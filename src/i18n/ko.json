@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Suleiman the Magnificent Television",
 			"Tensama0415",
 			"YeBoy371"
 		]
 	},
 	"common": {
-		"giveFeedback": "문제 보고",
+		"giveFeedback": "이슈 보고",
 		"closeModal": "닫기"
 	},
 	"editor": {
