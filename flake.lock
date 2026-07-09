@@ -5653,11 +5653,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783598907,
-        "narHash": "sha256-b+u16zEhhXrM1rwGy9le8HPF+S5EiV0Ah3s/kxBXJAA=",
+        "lastModified": 1783599616,
+        "narHash": "sha256-sQ0tlp/yzgEq+2Lcwf5PsMmeM3+7BVaA6DWQWFgsaPA=",
         "owner": "knowsys",
         "repo": "nemo-vscode-extension",
-        "rev": "b38a660398e563e060751cd52594e86bfd5f6405",
+        "rev": "9d5d809aeafd0bb2c44793d7c147cddad737ce44",
         "type": "github"
       },
       "original": {
