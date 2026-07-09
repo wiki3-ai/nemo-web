@@ -14,7 +14,7 @@ rec {
     };
 
     nemo-vscode-extension = {
-      url = "github:knowsys/nemo-vscode-extension";
+      url = "github:knowsys/nemo-vscode-extension/n3mo";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         dream2nix.follows = "dream2nix";

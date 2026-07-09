@@ -1347,11 +1347,11 @@
         "rust-overlay": "rust-overlay_19"
       },
       "locked": {
-        "lastModified": 1783598311,
-        "narHash": "sha256-csDqStoz86dU+gZ7p0MWDLClYgROI0Ny0mHRrJSghow=",
+        "lastModified": 1783598996,
+        "narHash": "sha256-7JFfKQFDBgq0Bca73TWl7Rwm1P+oT3vw6Bnc+dnS8+Q=",
         "owner": "knowsys",
         "repo": "nemo",
-        "rev": "3cd2e2c3a3200154a3de9ec14c1122b9559dab55",
+        "rev": "4292efc9a544c593b83904dce6a03ad0f4631528",
         "type": "github"
       },
       "original": {
@@ -5653,15 +5653,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1780580537,
-        "narHash": "sha256-TAS5z9fts3kCQOtwhTZCw3s9PHq0T6hmgoY1tMf3ACs=",
+        "lastModified": 1783598907,
+        "narHash": "sha256-b+u16zEhhXrM1rwGy9le8HPF+S5EiV0Ah3s/kxBXJAA=",
         "owner": "knowsys",
         "repo": "nemo-vscode-extension",
-        "rev": "0b5d43bff010ea3c614f5d2fd4bfb9995fcbe436",
+        "rev": "b38a660398e563e060751cd52594e86bfd5f6405",
         "type": "github"
       },
       "original": {
         "owner": "knowsys",
+        "ref": "n3mo",
         "repo": "nemo-vscode-extension",
         "type": "github"
       }
