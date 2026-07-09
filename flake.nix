@@ -2,14 +2,14 @@ rec {
   description = "Web frontend for the Nemo rule engine";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     dream2nix = {
       url = "github:nix-community/dream2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nemo = {
-      url = "github:knowsys/nemo";
+      url = "github:knowsys/nemo/n3mo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -122,7 +122,8 @@ rec {
                     { nixpkgs, ... }:
                     lib.mkMerge [
                       {
-                        inherit (nixpkgs) stdenv nodejs;
+                        inherit (nixpkgs) stdenv;
+                        nodejs = nixpkgs.nodejs_20;
                         nemo-wasm-web = lib.mkDefault nemo.packages.${system}.nemo-wasm-web;
                         nemo-wasm-bundler = lib.mkDefault nemo.packages.${system}.nemo-wasm-bundler;
                         nemo-vscode-extension-vsix =
@@ -193,7 +194,8 @@ rec {
                     { nixpkgs, ... }:
                     lib.mkMerge [
                       {
-                        inherit (nixpkgs) stdenv nodejs;
+                        inherit (nixpkgs) stdenv;
+                        nodejs = nixpkgs.nodejs_20;
                       }
                     ];
 
@@ -229,7 +231,7 @@ rec {
                   name = "nemo-web-preview";
 
                   runtimeInputs = [
-                    pkgs.nodejs
+                    pkgs.nodejs_20
                   ];
 
                   text = ''
