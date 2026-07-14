@@ -1,0 +1,19 @@
+@prefix : <http://example.org/> .
+
+# Some family data:
+:alice :father :bob ;
+    :mother :cho .
+
+:cho :father :daniel ;
+    :mother :eiko .
+
+:finley :mother :eiko .
+
+# Fathers and mothers are also parents:
+{ ?child :father ?father } => { ?child :parent ?father } .
+{ ?child :mother ?mother } => { ?child :parent ?mother } .
+# Ancestors are parents, and the parents of ancestors:
+{ ?child :parent ?parent } => { ?child :ancestor ?parent } .
+{ ?child :ancestor ?ancestor . ?ancestor :parent ?parent } => { ?child :ancestor ?parent } .
+# Common ancestors of Alice and Finley:
+{ :alice :ancestor ?ancestor . :finley :ancestor ?ancestor } => { ?ancestor a :AncestorOfBoth } .
