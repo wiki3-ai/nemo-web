@@ -1347,11 +1347,11 @@
         "rust-overlay": "rust-overlay_19"
       },
       "locked": {
-        "lastModified": 1783914491,
-        "narHash": "sha256-UvCPale6/h3Hs6mGQTdKrVg6KuGZ8h4Pd8nDAfzXojA=",
+        "lastModified": 1784003280,
+        "narHash": "sha256-JFjZ1/0iGToPRaYHYbSVdp3QcCl3U8del7YU3cMt5FI=",
         "owner": "knowsys",
         "repo": "nemo",
-        "rev": "2932b46a46800f500e773dde175246deae1aaa4f",
+        "rev": "5b0a35608a03f910feed00f5a1419da4344c908f",
         "type": "github"
       },
       "original": {
