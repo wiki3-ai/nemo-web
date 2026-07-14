@@ -26,6 +26,12 @@
 @parameter $sparqlService = <https://query.wikidata.org/sparql> .
 % @parameter $sparqlService = <https://qlever.dev/api/wikidata> .
 
+%%% Define program prefixes which can also be used with SPARQL
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+
 %%% Carbon Majors data. LEIs (legal entity IDs) are not given for all companies.
 %%% Schema: cmData(year, organisation, org-type, LEI, Mt CO2 equivalent)
 @import cmData :- csv{
@@ -37,14 +43,14 @@
 %%% Schema: wdLegalEntityId(QID, LEI)
 @import wdLegalEntityId :- sparql{ 
   endpoint = $sparqlService,
-  query = """PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+  query = """
     SELECT ?qid ?lei WHERE { ?qid wdt:P1278 ?lei . }"""
 } .
 %%% Find Wikidata country information for ID.
 %%% Schema: wdCountry(QID, countryQID)
 @import wdCountry :- sparql{
   endpoint = $sparqlService,
-  query = """PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+  query = """
     SELECT ?qid ?countryId WHERE { ?qid wdt:P17 ?countryId }"""
 } .
 %%% Find Wikidata businesses by their label. Labels are langstrings, as in "label"@en.
@@ -52,9 +58,6 @@
 @import wdBusiness :- sparql{
   endpoint = $sparqlService,
   query = """
-    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-    PREFIX wd: <http://www.wikidata.org/entity/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT ?qid ?langLabel WHERE {
       ?qid rdfs:label ?langLabel;
         wdt:P31/wdt:P279* wd:Q4830453 .
@@ -67,7 +70,6 @@
 @import wdLabel :- sparql {
     endpoint = <https://query.wikidata.org/sparql>, % must be WDQS to support non-standard SERVICE
     query = """
-      PREFIX wikibase: <http://wikiba.se/ontology#>
       SELECT ?x ?xLabel WHERE {
         SERVICE wikibase:label {
           <http://www.bigdata.com/rdf#serviceParam> wikibase:language "mul,en" }

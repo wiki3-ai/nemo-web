@@ -11,6 +11,8 @@
 
 % Prefixes help to abbreviate long identifiers or URLs:
 @prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
 
 % Parameters can be used for fixed terms throughout the program
 % (also try Madonna (Q1744) and Pope Leo XIV (Q6109517)):
@@ -21,7 +23,6 @@
 @import wdParent :- sparql{
   endpoint = <https://query.wikidata.org/sparql>,
   query = """
-    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
     SELECT ?child ?parent WHERE { ?child (wdt:P22|wdt:P25) ?parent }
   """
 } .
@@ -29,7 +30,6 @@
 @import wdLabel :- sparql{
   endpoint = <https://query.wikidata.org/sparql>,
   query="""
-    PREFIX wikibase: <http://wikiba.se/ontology#>
     SELECT ?qid ?qidLabel WHERE {
       SERVICE wikibase:label {
         <http://www.bigdata.com/rdf#serviceParam> wikibase:language "mul,en" } }
