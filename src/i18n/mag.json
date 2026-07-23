@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"ऐक्टिवेटेड्"
+		]
+	},
+	"common": {
+		"giveFeedback": "समस्या रिपोर्ट करथिन",
+		"closeModal": "बन्द करथिन"
+	},
+	"editor": {
+		"examples": "उदाहरण"
+	},
+	"navigationBar": {
+		"documentation": "प्रलेखन"
+	}
+}
