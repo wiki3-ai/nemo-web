@@ -1,0 +1,25 @@
+@prefix dblp: <https://dblp.org/rdf/schema#> .
+@import dblp :- sparql{
+    endpoint=<https://sparql.dblp.org/sparql>,
+    query="SELECT ?s ?p ?o WHERE { ?s ?p ?o }"
+} .
+
+%%% To try this offline, comment the import above and uncomment the following lines.
+% dblp(1, dblp:primaryCreatorName, "Raimund Dachselt").
+% dblp(2, dblp:primaryCreatorName, "Julián Méndez").
+% dblp(3, dblp:primaryCreatorName, "Lukas Gerlach").
+% dblp(4, dblp:primaryCreatorName, "Lukas Gerlach").
+% dblp(5, dblp:primaryCreatorName, "Markus Krötzsch").
+% dblp("Nemo/Nev", dblp:authoredBy, 1).
+% dblp("Nemo/Nev", dblp:authoredBy, 2).
+% dblp("Nemo/Nev", dblp:authoredBy, 3).
+% dblp("Nemo/Nev", dblp:authoredBy, 5).
+
+author("Raimund Dachsel"). author("Julian Mendez"). author("Lukas Gerlach") .
+pcMember("Markus Krötzsch") .
+
+authorId(?name,?id) :- author(?name), dblp(?id, dblp:primaryCreatorName, ?name) .
+pcmembId(?name,?id) :- pcMember(?name), dblp(?id, dblp:primaryCreatorName, ?name) .
+coi(?author,?pc) :- authorId(?author,?aid), pcmembId(?pc, ?pid),
+                    dblp(?pub, dblp:authoredBy, ?aid), dblp(?pub, dblp:authoredBy, ?pid) .
+

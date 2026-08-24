@@ -1,0 +1,27 @@
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix ps: <http://www.wikidata.org/prop/statement/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+@parameter $nobelPrize = wd:Q7191 .
+
+@import triple :- sparql{endpoint=<https://query.wikidata.org/sparql>} .
+
+%%% For offline use, comment the import above and uncomment the following lines:
+% triple(curie, p:P166, s1) .
+% triple(curie, p:P166, s2) .
+% triple(s1, ps:P166, p1) .
+% triple(s2, ps:P166, p2) .
+% triple(p1, wdt:P31, $nobelPrize) .
+% triple(p2, wdt:P31, $nobelPrize) .
+% triple(s1, pq:P585, 1903) .
+% triple(s2, pq:P585, 1911) .
+
+twoPrizes(?person, ?prize1, ?prize2) :-
+    triple(?person, p:P166, ?a1), triple(?person, p:P166, ?a2),
+    triple(?a1, ps:P166, ?prize1), triple(?a1, pq:P585, ?t1),
+    triple(?a2, ps:P166, ?prize2), triple(?a2, pq:P585, ?t2),
+    triple(?prize1, wdt:P31, $nobelPrize), triple(?prize2, wdt:P31, $nobelPrize),
+    ?t1 != ?t2 .
+

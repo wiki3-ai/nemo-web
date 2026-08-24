@@ -8,11 +8,26 @@ import wikipediaTitlesVsLabels from "./wikipediaTitlesVsLabels.rls?url";
 import longestWinningStreaks from "./longestWinningStreaks.rls?url";
 import carbonMajorCountries from "./carbonMajorCountries.rls?url";
 import emptyWikidataClasses from "./emptyWikidataClasses.rls?url";
+import conflictsOfInterestFromDblp from "./conflictsOfInterestFromDblp.rls?url";
+import shortestPathsInGraph from "./shortestPathsInGraph.rls?url";
+import personsWithTwoNobelPrizes from "./personsWithTwoNobelPrizes.rls?url";
 
 export const listOfExamples: {
   name: string;
   url: string;
 }[] = [
+  {
+    name: "Find conflicts of interest based on DBLP data",
+    url: conflictsOfInterestFromDblp,
+  },
+  {
+    name: "Find shortest paths in a directed graph",
+    url: shortestPathsInGraph,
+  },
+  {
+    name: "Find persons in Wikidata with two Nobel prizes",
+    url: personsWithTwoNobelPrizes,
+  },
   {
     name: "Ancestors (basic)",
     url: findCommonAncestors,
