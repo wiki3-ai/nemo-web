@@ -1,8 +1,5 @@
 @prefix dblp: <https://dblp.org/rdf/schema#> .
-@import dblp :- sparql{
-    endpoint=<https://sparql.dblp.org/sparql>,
-    query="SELECT ?s ?p ?o WHERE { ?s ?p ?o }"
-} .
+@import dblp :- sparql{endpoint=<https://sparql.dblp.org/sparql>} .
 
 %%% To try this offline, comment the import above and uncomment the following lines.
 % dblp(1, dblp:primaryCreatorName, "Raimund Dachselt").
@@ -15,7 +12,7 @@
 % dblp("Nemo/Nev", dblp:authoredBy, 3).
 % dblp("Nemo/Nev", dblp:authoredBy, 5).
 
-author("Raimund Dachsel"). author("Julian Mendez"). author("Lukas Gerlach") .
+author("Raimund Dachselt"). author("Julian Mendez"). author("Lukas Gerlach") .
 pcMember("Markus Krötzsch") .
 
 authorId(?name,?id) :- author(?name), dblp(?id, dblp:primaryCreatorName, ?name) .
