@@ -14,6 +14,8 @@ This project uses:
 
 ## Development
 
+Use Node.js 24 or newer for local npm commands.
+
 After building the [Nemo WASM library](https://github.com/knowsys/nemo/tree/main/nemo-wasm), start a development server:
 
 ```bash
